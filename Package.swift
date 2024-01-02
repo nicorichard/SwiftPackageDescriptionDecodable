@@ -4,20 +4,21 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwiftPackageDescription",
+    name: "SwiftPackageDescriptionDecodable",
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "SwiftPackageDescription",
-            targets: ["SwiftPackageDescription"]),
+            name: "SwiftPackageDescriptionDecodable",
+            targets: ["SwiftPackageDescriptionDecodable"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "SwiftPackageDescription"),
+            name: "SwiftPackageDescriptionDecodable"
+        ),
         .testTarget(
-            name: "SwiftPackageDescriptionTests",
-            dependencies: ["SwiftPackageDescription"]),
+            name: "SwiftPackageDescriptionDecodableTests",
+            dependencies: ["SwiftPackageDescriptionDecodable"]),
     ]
 )
