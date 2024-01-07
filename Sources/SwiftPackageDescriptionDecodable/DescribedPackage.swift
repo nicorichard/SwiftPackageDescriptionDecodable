@@ -1,23 +1,23 @@
 import Foundation
 
 public struct DescribedPackage: Decodable {
-    public let name: String
-    public let manifestDisplayName: String
-    public let path: String
-    public let toolsVersion: String
-    public let dependencies: [DescribedPackageDependency]
-    public let defaultLocalization: String?
-    public let platforms: [DescribedPlatformRestriction]
-    public let products: [DescribedProduct]
-    public let targets: [DescribedTarget]
-    public let cLanguageStandard: String?
-    public let cxxLanguageStandard: String?
-    public let swiftLanguagesVersions: [String]?
+    public var name: String
+    public var manifestDisplayName: String
+    public var path: String
+    public var toolsVersion: String
+    public var dependencies: [DescribedPackageDependency]
+    public var defaultLocalization: String?
+    public var platforms: [DescribedPlatformRestriction]
+    public var products: [DescribedProduct]
+    public var targets: [DescribedTarget]
+    public var cLanguageStandard: String?
+    public var cxxLanguageStandard: String?
+    public var swiftLanguagesVersions: [String]?
     
     public struct DescribedPlatformRestriction: Decodable {
-        public let name: String
-        public let version: String
-        public let options: [String]?
+        public var name: String
+        public var version: String
+        public var options: [String]?
     }
     
     public enum DescribedRequirement: Decodable, Equatable, Sendable {
@@ -101,9 +101,9 @@ public struct DescribedPackage: Decodable {
     }
 
     public struct DescribedProduct: Decodable {
-        public let name: String
-        public let type: ProductType
-        public let targets: [String]
+        public var name: String
+        public var type: ProductType
+        public var targets: [String]
         
         public enum ProductType: Decodable {
             public enum LibraryType: String, Decodable {
@@ -150,14 +150,14 @@ public struct DescribedPackage: Decodable {
     }
 
     public struct DescribedPluginCapability: Decodable {
-        public let type: String
-        public let intent: CommandIntent?
-        public let permissions: [Permission]?
+        public var type: String
+        public var intent: CommandIntent?
+        public var permissions: [Permission]?
         
         public struct CommandIntent: Decodable {
-            public let type: String
-            public let verb: String?
-            public let description: String?
+            public var type: String
+            public var verb: String?
+            public var description: String?
         }
 
         public struct Permission: Decodable {
@@ -169,29 +169,29 @@ public struct DescribedPackage: Decodable {
                 case unixDomainSocket
             }
 
-            public let type: String
-            public let reason: String
-            public let networkScope: NetworkScope
+            public var type: String
+            public var reason: String
+            public var networkScope: NetworkScope
         }
     }
 
     public struct DescribedTarget: Decodable {
-        public let name: String
-        public let type: String
-        public let c99name: String?
-        public let moduleType: String?
-        public let pluginCapability: DescribedPluginCapability?
-        public let path: String
-        public let sources: [String]
-        public let resources: [DescribedResource]?
-        public let targetDependencies: [String]?
-        public let productDependencies: [String]?
-        public let productMemberships: [String]?
+        public var name: String
+        public var type: String
+        public var c99name: String?
+        public var moduleType: String?
+        public var pluginCapability: DescribedPluginCapability?
+        public var path: String
+        public var sources: [String]
+        public var resources: [DescribedResource]?
+        public var targetDependencies: [String]?
+        public var productDependencies: [String]?
+        public var productMemberships: [String]?
     }
     
     public struct DescribedResource: Decodable, Equatable {
-        public let rule: Rule
-        public let path: String
+        public var rule: Rule
+        public var path: String
 
         public enum Rule: Decodable, Equatable {
             case process(localization: String?)
@@ -202,8 +202,8 @@ public struct DescribedPackage: Decodable {
 }
 
 public struct DescribedRange<T: Decodable>: Decodable {
-    public let lowerBound: T
-    public let upperBound: T
+    public var lowerBound: T
+    public var upperBound: T
 }
 
 extension DescribedRange: Sendable where T: Sendable {}
